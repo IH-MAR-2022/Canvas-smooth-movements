@@ -8,7 +8,7 @@ const w = canvas.width;
 
 let player = new Player();
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", function (e) {
   switch (e.keyCode) {
     case 38: // up arrow
       player.speedY = -5;
@@ -25,18 +25,18 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-document.addEventListener("keyup", (e) => {
+document.addEventListener("keyup", function (e) {
   player.speedX = 0;
   player.speedY = 0;
 });
 
 function startGame() {
   console.log(player);
-  play();
+  animate();
 }
 
-function play() {
-  window.requestAnimationFrame(play);
+function animate() {
+  window.requestAnimationFrame(animate);
   ctx.clearRect(0, 0, w, h);
   player.move();
   ctx.fillRect(player.x, player.y, player.width, player.height);
